@@ -51,6 +51,10 @@ class Gossip(private val context: Context): TextToSpeech.OnInitListener  {
         enableVolumeControl(this.activity)
     }
 
+    /**
+     *
+     *
+     */
     fun talk(text: CharSequence) {
         talk(text.toString(), null, null, null)
     }

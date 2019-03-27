@@ -1,6 +1,29 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext{
+    bintrayRepo = "Gossip"
+    bintrayName = "me.nikhilchaudhari.gossip"
+    libraryName = 'gossip'
+
+    publishedGroupId = 'me.nikhilchaudhari'
+    artifact = 'gossip'
+    libraryVersion = '1.0.0'
+
+    libraryDescription = 'Android TextToSpeech Helper'
+    siteUrl = 'https://github.com/CuriousNikhil/gossip'
+    gitUrl = 'https://github.com/CuriousNikhil/gossip.git'
+    developerId = 'curiousNikhil'
+    developerName = 'Nikhil Chaudhari'
+    developerEmail = 'nikhyl777@gmai.com'
+    licenseName = 'Apache License'
+    licenseUrl = "https://github.com/CuriousNikhil/gossip/blob/master/LICENSE"
+    allLicenses = ["Apache License"]
+
+}
 
 android {
     compileSdkVersion 28
@@ -39,4 +62,10 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+
+if (project.rootProject.file('local.properties').exists()){
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 }
