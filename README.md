@@ -8,6 +8,8 @@ Add the following line in your app level `build.gradle` file and you can gossip.
 
     implementation 'me.nikhilchaudhari.gossip:1.0.0'
 
+Or you can just use the `Gossip.kt` file in your project (dependencies: Kotlin Coroutines)
+
 ## Usage
 1. Initialise the `Gossip` as
 
@@ -76,3 +78,44 @@ Stop the TTS engine to avoid memory leaks.
         }
 
 
+### Methods
+**Change Language Locale**
+You can set the language with `setLanguage()`. Default is English
+
+      gossip.setLanguage(Locale("hn"))
+
+**Change Speed of Reader**
+You can change speed with `setSpeed()`.
+
+      gossip.setSpeed(2.0f)
+
+**Change the mode of Reader**
+You can change the mode `Queue` and `Flush` with `setQueueMode`.
+`Queue` mode will play the text in queue. If you keep playing text/strings.
+`Flush` mode will flush the whole string at once and reader will play it at once.
+
+    gossip.setQueueMode(TextToSpeech.QUEUE_ADD)
+    gossip.setQueueMode(TextToSpeech.QUEUE_FLUSH)
+
+**Check status**
+
+    gossip.isPlaying()
+
+
+----------------------------
+
+[License](https://github.com/CuriousNikhil/gossip/blob/master/LICENSE)
+
+       Copyright 2019 @ Nikhil Chaudhari
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.

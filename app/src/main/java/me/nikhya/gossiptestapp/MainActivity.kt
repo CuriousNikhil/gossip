@@ -2,7 +2,9 @@
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import me.nikhya.gossip.Gossip
+import java.util.*
 
  class MainActivity : AppCompatActivity() {
 
@@ -13,6 +15,14 @@ import me.nikhya.gossip.Gossip
         setContentView(R.layout.activity_main)
 
         gossip = Gossip(this)
+
+        gossip.setLanguage(Locale("hn"))
+        gossip.setSpeed(2.0f)
+
+        gossip.setQueueMode(TextToSpeech.QUEUE_ADD)
+        gossip.setQueueMode(TextToSpeech.QUEUE_FLUSH)
+
+        gossip.isPlaying()
 
         gossip.talkAndOnDone("Something", suspend {
             //do something
